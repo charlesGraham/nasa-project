@@ -20,6 +20,5 @@ const getAllLaunches = () => {
 }
 
 module.exports = {
-    launches,
     getAllLaunches
 };

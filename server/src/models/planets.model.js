@@ -32,12 +32,7 @@ const loadPlanetsData = () => {
                 resolve();
             });
     });
-
-
 }
-
-
-
 
 module.exports = {
     loadPlanetsData,

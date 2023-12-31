@@ -16,7 +16,7 @@ const launch = {
     success: true,
 };
 
-launches.set(launch.flightNumber, launch);
+launches.set(launch.flightNumber, launch); // set flightNumber as unique ID for flight
 
 const getAllLaunches = () => {
     return Array.from(launches.values());
@@ -34,7 +34,21 @@ const addNewLaunch = (launch) => {
             }));
 }
 
+const findLaunch = (id) => {
+    return launches.has(id);
+}
+
+const abortLaunch = (id) => {
+    const abortedLaunch = launches.get(id);
+    abortedLaunch.upcoming = false;
+    abortedLaunch.success = false;
+    return abortedLaunch;
+    // return launches.delete(deletedLaunch); // to delete launch
+}
+
 module.exports = {
     getAllLaunches,
-    addNewLaunch
+    addNewLaunch,
+    findLaunch,
+    abortLaunch
 };

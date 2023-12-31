@@ -1,6 +1,9 @@
 
 const launches = new Map();
 
+// to increment flight numbers when adding launches
+let latestFlightNumber = 100;
+
 // launch model
 const launch = {
     flightNumber: 100,
@@ -19,6 +22,19 @@ const getAllLaunches = () => {
     return Array.from(launches.values());
 }
 
+const addNewLaunch = (launch) => {
+    latestFlightNumber++;
+    launches
+        .set(latestFlightNumber,
+            Object.assign(launch, {
+                flightNumber: latestFlightNumber,
+                upcoming: true,
+                customers: ["NASA", "SpaceX"],
+                success: true
+            }));
+}
+
 module.exports = {
-    getAllLaunches
+    getAllLaunches,
+    addNewLaunch
 };
